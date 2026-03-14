@@ -1,0 +1,278 @@
+Virtual DOM
+
+Virtual DOM is the lighttweigtht representation of the Real DOM when object state changes virtual DOM will 
+change only that object rather than updating all the object.
+
+Working of Virtual DOM
+Here's a breakdown of how the Virtual DOM works:
+Rendering the Virtual DOM: React creates a virtual representation of the UI as a tree of JavaScript objects.
+Updating State: It generates a new virtual DOM tree to reflect the updated state when the application state changes.
+Diffing Algorithm: React compares the new Virtual DOM tree with the previous one using its efficient diffing 
+algorithm to identify the minimal set of changes required.
+Updating the Real DOM: React applies only the necessary changes to the real DOM, optimizing rendering performance.
+
+Shadow DOM
+
+Shadow DOM is a web standard that provides encapsulation for the internal DOM structure, style, and behavior of a web
+ component, isolating it from the rest of the main document.
+
+Real DOM
+
+The actual structure of a web page, a tree-like representation of HTML.
+
+****reconciliation is the overall process for efficiently updating the UI to match a new state or props, and 
+****the diffing algorithm is the specific technique used within this process to identify the minimal necessary changes.
+
+React Fiber
+
+React Fiber is the core reconciliation engine introduced in React 16 to improve rendering performance and make UI updates smoother.
+A Fiber is a plain JavaScript object representing a unit of work in React’s rendering process.
+
+React Portal
+
+React Portals provide a way to render HTML outside the parent component's DOM hierarchy. This is particularly useful for components
+ like modals, tooltips, and dialogs that need to break out of their container's layout.
+
+React.createElement()
+
+React.createElement() Method is used to create elements. Whenever we write code in JSX, JSX converts it to React.createElement(). 
+ The createElement method is not recommended to use as it is very hard to maintain or debug.
+
+
+React.cloneElement()
+
+The React.cloneElement() method is used when a parent component wants to add or modify the props of its children. 
+The React.cloneElement() function creates a clone of a given element, and we can also pass props and children into the function.
+
+what is function expression and function declartion
+what is event loop-
+The event loop is a core mechanism in JavaScript that allows it to handle asynchronous operations (like API calls, timers, and user events) 
+efficiently without blocking the main, single execution thread.
+
+explain event loop
+
+The event loop works in coordination with several components of the JavaScript runtime environment (e.g., a web browser or Node.js): 
+which back-end you use in react js -- Node.js
+ 
+reduce() 
+///////////////////////////////////////////////////////////////////////////////////////
+
+Diffing - The Diffing Algorithm is used to efficiently update the DOM Tree by identifying changes
+between the newly created virtual DOM and the previous version of the DOM after any updates
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+reconciliation - Reconciliation in React is the process through which React updates the 
+DOM to match the virtual DOM. When a component's state or props change, React creates a
+new virtual DOM tree and compares it with the previous one. This comparison process is 
+called "diffing." React then updates only the parts of the actual DOM that have changed, 
+making the updates efficient and fast.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+currying -Currying is used in JavaScript to break down complex function calls into smaller, 
+more manageable steps. It transforms a function with multiple arguments into a series of functions, 
+each taking a single argument.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Throttling = Throttling in JavaScript is a technique used to limit how often a function can be 
+executed in a given period of time, regardless of how many times the event triggering it is fired.
+ 
+////////////////////////////////////////////////////////////////////////////////////////////
+
+Debouncing = Debouncing in JavaScript is a programming technique that ensures a function is executed
+only after a specified period of inactivity, no matter how many times the triggering event fires in rapid 
+succession.
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Event Bubbling -Event bubbling is a mechanism in JavaScript where an event, triggered on a specific element,
+propagates upward through all of its ancestor elements in the Document Object Model (DOM) hierarchy, up to 
+the root of the document
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+propagation - Event propagation in JavaScript is the mechanism that defines how events, such as a mouse click, 
+travel through the Document Object Model (DOM) hierarchy.
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+What is event capturing - Event capturing is a propagation mechanism in the DOM (Document Object Model) where 
+an event, such as a click or a keyboard event, is first triggered at the root of the document and then flows 
+down through the DOM tree to the target element.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+Event delegation is a JavaScript technique where you attach a single event listener to a common parent 
+element to manage events for all of its children
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Type coercion in JavaScript is the automatic or implicit conversion of values from one data type to another 
+(e.g., number to string, or string to number) when an operation involves mismatched types. This is a core 
+feature of JavaScript as a weakly-typed language, but it can lead to unexpected results if the rules are not understood. 
+
+Types of Coercion
+
+JavaScript uses two types of type conversion: 
+
+Implicit Coercion (Automatic): The JavaScript engine automatically converts types during operations without the 
+developer's direct intervention. This happens in arithmetic operations, logical operations, and loose comparisons
+ (using ==).
+
+
+Explicit Coercion (Type Casting): The developer intentionally converts one type to another using built-in functions
+ or methods like Number(), String(), Boolean(), parseInt(), or .toString(). 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+A pure function in JavaScript is a function that, given the same input, always returns the same output and produces 
+no side effects. 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Method chaining in JavaScript is a programming technique that allows multiple methods to be called on the same object 
+in a single, continuous line of code. This results in cleaner, more readable, and less repetitive code by eliminating 
+the need for intermediate variables. 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+Recursion in JavaScript is a programming technique where a function calls itself to solve a problem by breaking it down 
+into smaller, similar sub-problems. This approach is particularly useful for tasks involving hierarchical data structures 
+like trees and graphs, or mathematical problems such as calculating factorials or Fibonacci sequences. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+JavaScript getters and setters are special methods that provide controlled access to object properties, allowing 
+you to execute custom logic (like validation, formatting, or computed properties) when a property is accessed or modified. 
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+In JavaScript, property shadowing is a concept that applies in two primary contexts: lexical scoping (variables in nested scopes)
+ and prototypal inheritance (properties on objects vs. their prototypes). In both cases, a property or variable in an inner or more 
+specific scope "hides" or "shadows" one with the same name in an outer or more general scope. 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+a shallow copy shares references to nested data, while a deep copy creates a completely independent replica of the entire structure. 
+
+//shallow copy
+const original = {
+  name: 'Jane',
+  work: { employer: 'Acme' }
+};
+const shallowCopy = { ...original };
+
+shallowCopy.name = 'John'; // Top-level change: original.name is 'Jane'
+shallowCopy.work.employer = 'Spectre'; // Nested change: original.work.employer is now 'Spectre' (shared reference)
+
+console.log(original.work.employer); // Output: 'Spectre'
+
+//Deep Copy
+
+const original = {
+  name: 'Jane',
+  work: { employer: 'Acme' }
+};
+const deepCopy = JSON.parse(JSON.stringify(original)); // Or use structuredClone(original)
+
+deepCopy.name = 'John';
+deepCopy.work.employer = 'Spectre'; // Changes only affect deepCopy
+
+console.log(original.work.employer); // Output: 'Acme' (original remains unchanged)
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Lifting state up in ReactJS is the process of moving shared state to a common parent so multiple 
+child components can access, update, and stay synchronized with the same data efficiently.
+
+/////////////////////////////////////////////////////////
+
+Lazy loading in React is a performance optimization technique that defers the loading of non-critical components or assets until they are needed, 
+which significantly reduces the initial bundle size and speeds up the application's initial load time. This is achieved using the built-in React.lazy() 
+and <Suspense> components. 
+
+Object.assign() --The Object.assign() method copies properties from one or more source objects to a target object.
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const merged = Object.assign({}, obj1, obj2); 
+-------------------------------------------------------------
+Object.create() --The Object.create() method creates an object from an existing object.
+
+// Create an Object:
+const person = {
+  firstName: "John",
+  lastName: "Doe"
+};
+
+// Create new Object
+const man = Object.create(person);
+man.firstName = "Peter";
+-------------------------------------------------------------------------------
+Object.entries() -- The Object.entries() method returns an array of the key/value pairs of an object.
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+const entries = Object.entries(person);
+console.log(entries);
+// Output: [ ["name", "John"], ["age", 30], ["city", "New York"] ]
+---------------------------------------------------------------------------------
+
+Object.key()-- The Object.keys() method returns an array with the keys of an object.
+
+The Object.keys() method does not change the original object.
+
+const car = { brand: "Toyota", model: "Camry", year: 2023 };
+const keys = Object.keys(car); 
+console.log(keys); // ["brand", "model", "year"]
+---------------------------------------------------------------------------------
+Object.values() == The Object.values() method returns an array of the property values of an object.
+
+The Object.values() method does not change the original object.
+
+const person = {
+  firstName : "John",
+  lastName : "Doe",
+  age : 50,
+  eyeColor : "blue"
+};
+
+let text = Object.values(person);
+-------------------------------------------------------------------------------------
+Object.freeze() -- The Object.freeze() static method freezes an object. Freezing an object 
+prevents extensions and makes existing properties non-writable and non-configurable.
+const obj = {
+  prop: 42,
+};
+
+Object.freeze(obj);
+
+obj.prop = 33;
+// Throws an error in strict mode
+
+console.log(obj.prop);
+// Expected output: 42
+-----------------------------------------------------------------------------------------
+Object.seal() -- Object.seal() in JavaScript is a static method that locks an object, preventing 
+new properties from being added and marking all existing properties as non-configurable.
+
+const user = { name: 'Alice' };
+Object.seal(user);
+
+user.name = 'Bob'; // Allowed: Updating existing value
+user.age = 25;     // Silently fails (or TypeError in strict mode)
+delete user.name;  // Silently fails (or TypeError in strict mode)
+
+console.log(user); // Output: { name: 'Bob' }
+
+///////////////////////////////////////////////////
+
+
+
